@@ -68,6 +68,7 @@ def complex_div(comp_1, comp_2):
 
 
 def print_complex(complex):
+    
     if complex.y == 0:
         print(str(complex.x) + '\n')
     elif complex.y > 0:
