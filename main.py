@@ -7,16 +7,7 @@ import complex
 def main():
     
     return 0
-    #newline
     
-    #changed at3.00
-    
-    
-    
-    
-    
-    #call me hao
-    #call me justin
 
 
 main()
