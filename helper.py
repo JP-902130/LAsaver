@@ -25,3 +25,9 @@ def reduce_square(num):
     return "{:.2f}\n".format(math.sqrt(num))
     ## returns two decimal places
       
+def is_num(char):
+    num = ['1','2','3','4','5','6','7','8','9','0']
+    if char in num:
+        return 1
+    else:
+        return 0

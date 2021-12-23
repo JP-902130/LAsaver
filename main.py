@@ -1,12 +1,13 @@
-##main.py
 
+#main
 import math
 import helper
 import complex
 
+
 def main():
     
-    return 0
+    complex.calculate()
     
 
 main()
