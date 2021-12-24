@@ -16,6 +16,7 @@ def subt_matrix(vector1,vector2): #2
 
 def mult_matrix(vector1,vector2): #3
     return (vector1*vector2)
+<<<<<<< HEAD
 # function that takes only 1 parameter;
 def matrix_transpose(matrix1): #4
     return matrix1.transpose()
@@ -28,6 +29,10 @@ def matrix_rank(matrix1): #6
 def magni_vector(vector1):
    return (np.linalg.norm(vector1))
 '''
+=======
+   
+
+>>>>>>> refs/remotes/origin/main
 def print_matrix(matrix):
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
