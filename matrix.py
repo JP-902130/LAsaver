@@ -17,10 +17,7 @@ def subt_matrix(vector1,vector2):
 def mult_matrix(vector1,vector2):
     return (vector1*vector2)
    
-'''
-def magni_vector(vector1):
-   return (np.linalg.norm(vector1))
-'''
+
 def print_matrix(matrix):
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
