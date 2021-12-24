@@ -5,7 +5,7 @@ def vector_input():
     vector1 = np.ones((n,1))
     for i in range(n):
         vector1[i,0] = int(input("now type in number in each row\n"))
-     print("your {} dimension vector is\n {}".format(n,vector1))
+    print("your {} dimension vector is\n {}".format(n,vector1))
     return vector1
        
 
@@ -34,10 +34,6 @@ def magni_vector(vector1):
 
 
 
-
-
-
-
 def calculate_vector():
     print("Here are some operations you can choose. Please select the correct NUMBER")
     choice = input(" 1) addtion\n 2) multiplication\n 3) exponentential\n 4) division\n 5) Modulus\n ")
@@ -50,15 +46,8 @@ for i in range(num_vector):
     array[i]=(vector_input())
 print(array)
 print (array[1]+array[0])
-print()
-print (array[1]-array[0])
-print()
-print (array[1]*array[0])
-print()
-print (array[1]/array[0])
-print()
-print ( magni_vector(array[1]))
-print()
+x = add_vector(array[1],array[0])
+print (x)
 
     
 
