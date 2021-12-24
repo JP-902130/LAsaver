@@ -8,24 +8,15 @@ def matrix_create():
     return array
 
 def add_matrix(vector1,vector2):
-    '''
-    if (vector1+vector2):
-        return (vector1+vector2)
-    else:
-        return ("Error")
-    '''
     return vector1 + vector2
+
 def subt_matrix(vector1,vector2):
-    if (vector1-vector2):
-        return (vector1-vector2)
-    else:
-        return ("Error")
+    return (vector1-vector2)
+    
 
 def mult_matrix(vector1,vector2):
-    if (vector1*vector2):
-        return (vector1*vector2)
-    else:
-        return ("Error")
+    return (vector1*vector2)
+   
 '''
 def magni_vector(vector1):
    return (np.linalg.norm(vector1))
