@@ -2,11 +2,6 @@
 import math
 import helper
 import re
-import os
-import sys
-os.system('cls')
-red = "\033[0;31m"
-white = "\033[0;37m"
 '''
 pre: two integers; x stands for real part and y stands for imagnary part;
 post:(str) the modulus in the simplest form;
@@ -121,7 +116,7 @@ def convert_object(sentence): #ask for a string input and convert to object
 
 def calculate():
     # Get input from the user
-    try:
+    while(1):
         print()
         print("Here are some operations you can choose. Please select the correct NUMBER")
         choice = input(" 1) addtion\n 2) multiplication\n 3) exponentential\n 4) division\n 5) Modulus\n 6) Conjugate\n ")
@@ -171,10 +166,6 @@ def calculate():
         if int(q) == 1:
             continue
         elif int(q) == 0:
-            
-            return
-    except:
-        
-        print(red, "An error occured, please check your input format",white)
-        calculate()
+            print("Thank you")
+            break
         
