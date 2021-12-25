@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 import numpy as np
 from numpy.core.numeric import cross
 #functions:
@@ -95,3 +97,4 @@ def calculate():
         print(res)
 
 
+>>>>>>> parent of af4574b (20211225)

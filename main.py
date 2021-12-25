@@ -10,7 +10,7 @@ import vector
 
 def main():
     
-    matrix.calculate()
+    vector.calculate()
     
 
 main()
