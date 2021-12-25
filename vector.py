@@ -51,12 +51,15 @@ def proj_vector(vector,d):
     return  proj
 
  
-def print_vector(vector):
-   
-    for j in range(len(vector)):   
-        print(vector[j], end = ' ')
+def print_matrix(matrix):
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            print(matrix[i][j], end = ' ')
             
         print()
+def print_arr(arr):
+    for i in range(len(arr)):
+        print(arr[i],)
 
 def calculate():
     
@@ -70,7 +73,7 @@ def calculate():
         arr2 = vector_create()
         
         
-        print("----Your result is----")
+       
         if choice == '1':
             res = add_vector(arr1, arr2)
     
@@ -82,31 +85,39 @@ def calculate():
             
             
         
-        print_vector(res)
+        
 
     elif choice =='2':
         n = int(input("give the coefficient\n"))
         arr1 = vector_create()
         res = mult_vector(n,arr1)
-        print("----Your result is----")
-        print_vector(res)    
+       
+            
             
     elif choice == '4':
         arr2 = vector_create()
         res = magni_vector(arr2)    
-        print("----Your result is----")
-        print (res)   
+  
+           
     
     elif  choice =='5':
         Arr1 = vector_create()
         Arr2 = vector_create()
-        print("----Your result is----")
+      
         
         res = dot_vector(Arr1,Arr2)
         
-        print(res)
+    if type(res[0]) == np.int64:
+        print_matrix(res)
+    else: 
+        print_arr(res)
 
-Arr1 = vector_create()
-Arr2 = vector_create()
-s = proj_vector(Arr1,Arr2)
-print_vector(s)
+        
+
+vector = vector_create()
+d = vector_create()
+res = proj_vector(vector,d)
+if type(res[0]) == np.int64:
+        print_matrix(res)
+else: 
+        print_arr(res)
