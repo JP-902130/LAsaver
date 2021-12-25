@@ -6,6 +6,10 @@ import complex
 import numpy
 import matrix
 import vector
+import os
+os.system('cls')
+red = "\033[0;31m"
+white = "\033[0;37m"
 
 
 def main():

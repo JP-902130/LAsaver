@@ -1,7 +1,10 @@
 ## complex number calculators;
 import math
 import helper
-import re
+import os
+os.system('cls')
+red = "\033[0;31m"
+white = "\033[0;37m"
 '''
 pre: two integers; x stands for real part and y stands for imagnary part;
 post:(str) the modulus in the simplest form;
@@ -116,14 +119,12 @@ def convert_object(sentence): #ask for a string input and convert to object
 
 def calculate():
     # Get input from the user
-    while(1):
+    try:
         print()
         print("Here are some operations you can choose. Please select the correct NUMBER")
-        choice = input(" 1) addtion\n 2) multiplication\n 3) exponentential\n 4) division\n 5) Modulus\n 6) Conjugate\n ")
+        choice = input(" 1) addtion 2) multiplication 3) exponentential 4) division 5) Modulus 6) Conjugate 0) Quit\n ")
         print()
-        while( helper.is_num(choice) != 1 or (int(choice) < 1 or int(choice) > 6)):
-            print("Please give valid input")
-            choice = input(" 1) addtion\n 2) multiplication\n 3) exponentential\n 4) division\n 5) Modulus\n 6) Conjugate\n ")
+        
         
 
         #evaluate
@@ -146,7 +147,7 @@ def calculate():
             print_complex(complex_div(comp1, comp2))    
         elif choice == '3':
             comp1 = convert_object("Please input your base")
-            n = int(input("Please input the exponent"))
+            n = int(input("Please input the exponent\n"))
             print("The result is:\n")
             print_complex(complex_pow(comp1, n))
         elif choice == '5':
@@ -157,15 +158,19 @@ def calculate():
             comp1 = convert_object("Please input a complex number")
             print("The result is:\n")
             print_complex(GetConjugate(comp1))
+        elif choice == '0':
+            return
+        else:
+            print(red, "Please input correctly!", white)
+            calculate()
         
-        q = input("Do you want to make another comnplex number calculation? Press 1 to continue, press 0 to quit")
-        
-        while (helper.is_num(q) == 0 or (int(q) != 0 and int(q) != 1)):
-            q = input("Please enter valid input")
+        q = input("Do you want to make another comnplex number calculation? Press 1 to continue, press 0 to quit\n")
+        if q == '1':
+            calculate()
+        else:
+            return
+ 
 
-        if int(q) == 1:
-            continue
-        elif int(q) == 0:
-            print("Thank you")
-            break
-        
+    except:
+        print(red, "An error occured, please check your input format",white)
+        calculate()        
