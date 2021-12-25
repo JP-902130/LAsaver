@@ -39,6 +39,7 @@ def cross_vector(vector1,vector2):
     res = res[0]
     return res.T
 
+<<<<<<< HEAD
 # proj, perp
 def proj_vector(vector,d):
     numrator = dot_vector(vector,d)
@@ -51,6 +52,8 @@ def print_matrix(matrix):
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
             print(matrix[i][j], end = ' ')
+=======
+>>>>>>> parent of af4574b (20211225)
 def print_vector(vector):
    
     for j in range(len(vector)):   
@@ -114,3 +117,7 @@ def calculate():
 
         
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of af4574b (20211225)
