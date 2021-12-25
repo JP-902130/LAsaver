@@ -1,27 +1,26 @@
 import numpy as np
-
+import os
+import sys
+os.system('cls')
+red = "\033[0;31m"
+white = "\033[0;37m"
 
 # the function ask for input from user and return a matrix object
 def matrix_create():
-    try:
-        n = int(input("Please give the number of rows: \n"))
-        m = int(input("Please give the number of columns: \n"))
-        print("Now please input your matrix, separated by space\n")
-        array = np.array([input().strip().split() for _ in range(n)], int)
-        return array
-    except:
-        print("Invalid Operations, try again please!")
-        return matrix_create()
+    
+    n = int(input("Please give the number of rows: \n"))
+    m = int(input("Please give the number of columns: \n"))
+    print("Now please input your matrix, separated by space\n")
+    array = np.array([input().strip().split() for _ in range(n)], int)
+    return array
+    
+        
+      
 
 # matrix addtion, subtraction and multiplication
 def add_matrix(matrix1,matrix2): #1
-    try:
-        return matrix1 + matrix2
-    except:
-        print("Invalid input, please re-enter")
-        matrix1 = matrix_create()
-        matrix2 = matrix_create()
-        add_matrix(matrix1, matrix2)
+    
+    return matrix1 + matrix2
     
 def subt_matrix(matrix1,matrix2): #2
     
@@ -54,65 +53,68 @@ def print_arr(arr):
         
 
 def calculate():
-    
-    print()
-    print("Here are some operations you can choose. Please select the correct NUMBER\n")
-    print("Here are some matrix operations you can choose\n")
-    choice = input("1) Addition 2) Subtraction 3) Multiplication 4) Transpose 5) Trace 6) Rank \n")
-    
-    if choice == '1' or choice == '2' or choice == '3':
-        arr1 = matrix_create()
-        arr2 = matrix_create()
-        
-        print("----Your result is----")
-        if choice == '1':
-            res = add_matrix(arr1, arr2)
-        if choice == '2':
-            res = subt_matrix(arr1, arr2)
-        if choice == '3':
-            res = mult_matrix(arr1, arr2)
-            if type(res[0]) == np.int64:
-                print_arr(res)
-            else: 
-                print_matrix(res)
-            ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
-            if ask == '1':
-                calculate()
-            else:
-                return     
-    else:
-        arr1 = matrix_create()
-        if choice == '4':
-            res = matrix_transpose(arr1)
-        if choice == '5':
-            res = matrix_trace(arr1)
-            print("The result is:")
-            print(res)
-            ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
-            if ask == '1':
-                calculate()
-            else:
-                return                 
-        if choice == '6':
-            res = matrix_rank(arr1)
-            print("The result is:")
-            print(res)
-            ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
-            if ask == '1':
-                calculate()
-            else:
-                return            
-        
-    
+    try:
+        print()
+        print("Here are some operations you can choose. Please select the correct NUMBER\n")
+        print("Here are some matrix operations you can choose\n")
+        choice = input("1) Addition 2) Subtraction 3) Multiplication 4) Transpose 5) Trace 6) Rank \n")
 
-    print_matrix(res)
-    
-    ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
-    if ask == '1':
+        if choice == '1' or choice == '2' or choice == '3':
+            arr1 = matrix_create()
+            arr2 = matrix_create()
+            
+            print("----Your result is----")
+            if choice == '1':
+                res = add_matrix(arr1, arr2)
+            if choice == '2':
+                res = subt_matrix(arr1, arr2)
+            if choice == '3':
+                res = mult_matrix(arr1, arr2)
+                if type(res[0]) == np.int64:
+                    print_arr(res)
+                else: 
+                    print_matrix(res)
+                ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
+                if ask == '1':
+                    calculate()
+                else:
+                    return     
+        else:
+            arr1 = matrix_create()
+            if choice == '4':
+                res = matrix_transpose(arr1)
+            if choice == '5':
+                res = matrix_trace(arr1)
+                print("The result is:")
+                print(res)
+                ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
+                if ask == '1':
+                    calculate()
+                else:
+                    return                 
+            if choice == '6':
+                res = matrix_rank(arr1)
+                print("The result is:")
+                print(res)
+                ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
+                if ask == '1':
+                    calculate()
+                else:
+                    return            
+            
+        
+
+
+        print_matrix(res)
+        
+        ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
+        if ask == '1':
+            calculate()
+        else:
+            return                         
+
+    except:
+        print(red, "An error occured, please check your input format",white)
         calculate()
-    else:
-        return                         
-
-    
 
     
