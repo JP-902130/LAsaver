@@ -57,7 +57,7 @@ def calculate():
         print()
         print("Here are some operations you can choose. Please select the correct NUMBER\n")
         print("Here are some matrix operations you can choose\n")
-        choice = input("1) Addition 2) Subtraction 3) Multiplication 4) Transpose 5) Trace 6) Rank \n")
+        choice = input("1) Addition 2) Subtraction 3) Multiplication 4) Transpose 5) Trace 6) Rank 7) Quit \n")
 
         if choice == '1' or choice == '2' or choice == '3':
             arr1 = matrix_create()
@@ -79,7 +79,7 @@ def calculate():
                     calculate()
                 else:
                     return     
-        else:
+        elif choice == '4' or choice == '5' or choice == '6':
             arr1 = matrix_create()
             if choice == '4':
                 res = matrix_transpose(arr1)
@@ -102,7 +102,12 @@ def calculate():
                 else:
                     return            
             
-        
+        elif choice == '7':
+            return
+
+        else:
+            print(red, "Please input correctly!", white)
+            calculate()
 
 
         print_matrix(res)
