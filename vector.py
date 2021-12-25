@@ -1,5 +1,10 @@
 import numpy as np
 from numpy.core.numeric import cross
+import os
+import sys
+os.system('cls')
+red = "\033[0;31m"
+white = "\033[0;37m"
 #functions:
 #+-*
 # moudlus,dot, cross
@@ -61,57 +66,64 @@ def print_vector(vector):
         print()
 
 def calculate():
-    
-    print()
-    print("Here are some operations you can choose. Please select the correct NUMBER\n")
-    print("Here are some vector operations you can choose\n")
-    choice = input("1) Addition 2) Multiplication  3) Subtraction 4) Norm 5) Dot Product 6) Cross Product 7) Projection 8) Perpendicular\n")
-    
-    if choice == '1' or choice == '3' or choice == '6' or choice =='7' or choice =='8':
-        arr1 = vector_create()
-        arr2 = vector_create()
-        
-        
-        print("----Your result is----")
-        if choice == '1':
-            res = add_vector(arr1, arr2)
-    
-        elif choice == '3':
-            res = subt_vector(arr1, arr2)
-
-        elif choice == '6':
-            res = cross_vector(arr1,arr2)
-        
-        elif choice == '7':
-            res = proj_vector(arr1,arr2)
-        
-        elif choice =='8':
-            res = perp_vector(arr1,arr2)
+    try:
+            print()
+            print("Here are some operations you can choose. Please select the correct NUMBER\n")
+            print("Here are some vector operations you can choose\n")
+            choice = input("1) Addition 2) Multiplication  3) Subtraction 4) Norm 5) Dot Product 6) Cross Product 7) Projection 8) Perpendicular\n")
             
-        print_vector(res)
-
-    elif choice =='2':
-        n = int(input("give the coefficient\n"))
-        arr1 = vector_create()
-        res = mult_vector(n,arr1)
-        print("----Your result is----")
-        print_vector(res)    
+            if choice == '1' or choice == '3' or choice == '6' or choice =='7' or choice =='8':
+                arr1 = vector_create()
+                arr2 = vector_create()
+                
+                
+                print("----Your result is----")
+                if choice == '1':
+                    res = add_vector(arr1, arr2)
             
-    elif choice == '4':
-        arr2 = vector_create()
-        res = magni_vector(arr2)    
-        print("----Your result is----")
-        print (res)   
-    
-    elif  choice =='5':
-        Arr1 = vector_create()
-        Arr2 = vector_create()
-        print("----Your result is----")
-        
-        res = dot_vector(Arr1,Arr2)
-        
-        print(res)
+                elif choice == '3':
+                    res = subt_vector(arr1, arr2)
 
-  
+                elif choice == '6':
+                    res = cross_vector(arr1,arr2)
+                
+                elif choice == '7':
+                    res = proj_vector(arr1,arr2)
+                
+                elif choice =='8':
+                    res = perp_vector(arr1,arr2)
+                    
+                print_vector(res)
+
+            elif choice =='2':
+                n = int(input("give the coefficient\n"))
+                arr1 = vector_create()
+                res = mult_vector(n,arr1)
+                print("----Your result is----")
+                print_vector(res)    
+                    
+            elif choice == '4':
+                arr2 = vector_create()
+                res = magni_vector(arr2)    
+                print("----Your result is----")
+                print (res)   
+            
+            elif  choice =='5':
+                Arr1 = vector_create()
+                Arr2 = vector_create()
+                print("----Your result is----")
+                
+                res = dot_vector(Arr1,Arr2)
+                
+                print(res)
+
+            ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
+            if ask == '1':
+                calculate()
+            else:
+                return      
+    except:
+        print(red, "An error occured, please check your input format",white)
+        calculate()
 
 
