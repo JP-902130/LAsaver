@@ -1,13 +1,9 @@
 import numpy as np
 from numpy.core.numeric import cross
-import sympy as sy
 #functions:
 #+-*
 # moudlus,dot, cross
-# check parallel, find theta, find orthogonal
-#parallelgram area
-# proj, perp
-#volume
+# check parallel
 
 
 #special input process
@@ -32,7 +28,7 @@ def mult_vector(n,vector2):
 def magni_vector(vector1):
    return (np.linalg.norm(vector1))
 
-# dot, cross
+#
 def dot_vector(vector1,vector2):
     arr2 = np.squeeze(np.asarray(vector1))
     arr1 = np.squeeze(np.asarray(vector2))
@@ -55,6 +51,10 @@ def print_matrix(matrix):
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
             print(matrix[i][j], end = ' ')
+def print_vector(vector):
+   
+    for j in range(len(vector)):   
+        print(vector[j], end = ' ')
             
         print()
 def print_arr(arr):
@@ -114,10 +114,3 @@ def calculate():
 
         
 
-vector = vector_create()
-d = vector_create()
-res = proj_vector(vector,d)
-if type(res[0]) == np.int64:
-        print_matrix(res)
-else: 
-        print_arr(res)
