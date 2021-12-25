@@ -3,18 +3,29 @@ import numpy as np
 
 # the function ask for input from user and return a matrix object
 def matrix_create():
-    n = int(input("Please give the number of rows: \n"))
-    m = int(input("Please give the number of columns: \n"))
-    print("Now please input your matrix, separated by space\n")
-    array = np.array([input().strip().split() for _ in range(n)], int)
-    return array
-# matrix addtion, subtraction and multiplication
-def add_matrix(vector1,vector2): #1
-    return vector1 + vector2
+    try:
+        n = int(input("Please give the number of rows: \n"))
+        m = int(input("Please give the number of columns: \n"))
+        print("Now please input your matrix, separated by space\n")
+        array = np.array([input().strip().split() for _ in range(n)], int)
+        return array
+    except:
+        print("Invalid Operations, try again please!")
+        return matrix_create()
 
-def subt_matrix(vector1,vector2): #2
-    return (vector1-vector2)
+# matrix addtion, subtraction and multiplication
+def add_matrix(matrix1,matrix2): #1
+    try:
+        return matrix1 + matrix2
+    except:
+        print("Invalid input, please re-enter")
+        matrix1 = matrix_create()
+        matrix2 = matrix_create()
+        add_matrix(matrix1, matrix2)
     
+def subt_matrix(matrix1,matrix2): #2
+    
+    return matrix1 - matrix2
 
 def mult_matrix(matrix1,matrix2): #3
     matrix1 = np.squeeze(np.asarray(matrix1))
@@ -31,10 +42,6 @@ def matrix_rref(matrix1):
     res = matrix1.rref()
     return res
 
-'''
-def magni_vector(vector1):
-   return (np.linalg.norm(vector1))
-'''
 def print_matrix(matrix):
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
@@ -51,7 +58,7 @@ def calculate():
     print()
     print("Here are some operations you can choose. Please select the correct NUMBER\n")
     print("Here are some matrix operations you can choose\n")
-    choice = input("1) Addition 2) Subtraction 3) Multiplication 4) Transpose 5) Trace 6) Rank 7) RREF\n")
+    choice = input("1) Addition 2) Subtraction 3) Multiplication 4) Transpose 5) Trace 6) Rank \n")
     
     if choice == '1' or choice == '2' or choice == '3':
         arr1 = matrix_create()
@@ -68,7 +75,11 @@ def calculate():
                 print_arr(res)
             else: 
                 print_matrix(res)
-            return 0
+            ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
+            if ask == '1':
+                calculate()
+            else:
+                return     
     else:
         arr1 = matrix_create()
         if choice == '4':
@@ -77,15 +88,31 @@ def calculate():
             res = matrix_trace(arr1)
             print("The result is:")
             print(res)
-            return 0
+            ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
+            if ask == '1':
+                calculate()
+            else:
+                return                 
         if choice == '6':
             res = matrix_rank(arr1)
             print("The result is:")
             print(res)
-            return 0
-        if choice == '7':
-            res = matrix_rref(arr1)
+            ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
+            if ask == '1':
+                calculate()
+            else:
+                return            
+        
     
+
     print_matrix(res)
     
-   
+    ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
+    if ask == '1':
+        calculate()
+    else:
+        return                         
+
+    
+
+    
