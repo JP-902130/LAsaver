@@ -1,9 +1,13 @@
 import numpy as np
 from numpy.core.numeric import cross
+import sympy as sy
 #functions:
 #+-*
 # moudlus,dot, cross
-# check parallel
+# check parallel, find theta, find orthogonal
+#parallelgram area
+# proj, perp
+#volume
 
 
 #special input process
@@ -28,7 +32,7 @@ def mult_vector(n,vector2):
 def magni_vector(vector1):
    return (np.linalg.norm(vector1))
 
-#
+# dot, cross
 def dot_vector(vector1,vector2):
     arr2 = np.squeeze(np.asarray(vector1))
     arr1 = np.squeeze(np.asarray(vector2))
@@ -39,6 +43,14 @@ def cross_vector(vector1,vector2):
     res = res[0]
     return res.T
 
+# proj, perp
+def proj_vector(vector,d):
+    numrator = dot_vector(vector,d)
+    denominator = magni_vector(d)**2
+    proj = ((numrator/denominator)*d)
+    return  proj
+
+ 
 def print_vector(vector):
    
     for j in range(len(vector)):   
@@ -94,4 +106,7 @@ def calculate():
         
         print(res)
 
-
+Arr1 = vector_create()
+Arr2 = vector_create()
+s = proj_vector(Arr1,Arr2)
+print_vector(s)
