@@ -1,11 +1,12 @@
-<<<<<<< HEAD
-=======
 import numpy as np
 from numpy.core.numeric import cross
 #functions:
 #+-*
 # moudlus,dot, cross
-# check parallel
+# check parallel, find theta, find orthogonal
+#parallelgram area
+# proj, perp
+#volume
 
 
 #special input process
@@ -30,7 +31,7 @@ def mult_vector(n,vector2):
 def magni_vector(vector1):
    return (np.linalg.norm(vector1))
 
-#
+# dot, cross
 def dot_vector(vector1,vector2):
     arr2 = np.squeeze(np.asarray(vector1))
     arr1 = np.squeeze(np.asarray(vector2))
@@ -38,13 +39,24 @@ def dot_vector(vector1,vector2):
 
 def cross_vector(vector1,vector2):
     res =  np.cross(vector1.T,vector2.T)
-    res = res[0]
     return res.T
+
+#proj perp
+def proj_vector(vector,d):
+    numrator = dot_vector(vector,d)
+    denominator = magni_vector(d)**2
+    proj = ((numrator/denominator)*d)
+    return  proj
+
+def perp_vector(vector,d):
+    proj = proj_vector(vector,d)
+    perp = vector-proj
+    return perp
 
 def print_vector(vector):
    
     for j in range(len(vector)):   
-        print(vector[j], end = ' ')
+        print(vector[j][0], end = ' ')
             
         print()
 
@@ -53,9 +65,9 @@ def calculate():
     print()
     print("Here are some operations you can choose. Please select the correct NUMBER\n")
     print("Here are some vector operations you can choose\n")
-    choice = input("1) Addition 2) Multiplication  3) Subtraction 4) Norm 5) Dot Product 6) Cross Product\n")
+    choice = input("1) Addition 2) Multiplication  3) Subtraction 4) Norm 5) Dot Product 6) Cross Product 7) Projection 8) Perpendicular\n")
     
-    if choice == '1' or choice == '3' or choice == '6':
+    if choice == '1' or choice == '3' or choice == '6' or choice =='7' or choice =='8':
         arr1 = vector_create()
         arr2 = vector_create()
         
@@ -69,9 +81,13 @@ def calculate():
 
         elif choice == '6':
             res = cross_vector(arr1,arr2)
-            
-            
         
+        elif choice == '7':
+            res = proj_vector(arr1,arr2)
+        
+        elif choice =='8':
+            res = perp_vector(arr1,arr2)
+            
         print_vector(res)
 
     elif choice =='2':
@@ -96,5 +112,6 @@ def calculate():
         
         print(res)
 
+  
 
->>>>>>> parent of af4574b (20211225)
+
