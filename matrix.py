@@ -37,9 +37,7 @@ def matrix_trace(matrix1): #5
     return np.trace(matrix1)
 def matrix_rank(matrix1): #6
     return np.linalg.matrix_rank(matrix1)
-def matrix_rref(matrix1):
-    res = matrix1.rref()
-    return res
+
 
 def print_matrix(matrix):
     for i in range(len(matrix)):
