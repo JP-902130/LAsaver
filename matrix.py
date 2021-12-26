@@ -1,6 +1,7 @@
 import numpy as np
 import os
 import sys
+from sympy import * 
 os.system('cls')
 red = "\033[0;31m"
 white = "\033[0;37m"
@@ -15,7 +16,20 @@ def matrix_create():
     return array
     
         
-      
+def matrix_input():
+    
+    n = int(input("Please give the number of rows: \n"))
+    m = int(input("Please give the number of columns: \n"))
+    print("Now please input your matrix, separated by space\n")
+    array = ([input().strip().split() for _ in range(n)])
+    matrix = Matrix(array)
+    arr = matrix.rref()[0]     
+    print("The result is:")
+    for i in range (len(arr)):
+        print(arr[i], end = ' ')
+        if ((i+1) % (len(arr)/n)) == 0:
+            
+            print()
 
 # matrix addtion, subtraction and multiplication
 def add_matrix(matrix1,matrix2): #1
@@ -55,7 +69,7 @@ def calculate():
         print()
         print("Here are some operations you can choose. Please select the correct NUMBER\n")
         print("Here are some matrix operations you can choose\n")
-        choice = input("1) Addition 2) Subtraction 3) Multiplication 4) Transpose 5) Trace 6) Rank 0) Quit \n")
+        choice = input("1) Addition 2) Subtraction 3) Multiplication 4) Transpose 5) Trace 6) Rank 7) RREF 0) Quit \n")
 
         if choice == '1' or choice == '2' or choice == '3':
             arr1 = matrix_create()
@@ -98,7 +112,15 @@ def calculate():
                 if ask == '1':
                     calculate()
                 else:
-                    return            
+                    return   
+
+        elif choice =='7':
+                matrix_input()     
+                ask = input("Do you want to calculate it again? Press 1 to play, Press 0 to quit.\n")
+                if ask == '1':
+                    calculate()
+                else:
+                    return  
             
         elif choice == '0':
             return
