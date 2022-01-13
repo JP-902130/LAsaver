@@ -30,7 +30,7 @@ def main():
         elif answer=='0':
             break
         else:
-            print("Input error try again")
+            print("There's an input error. Please follow the instructions in README.txt!")
             main()
     
   
